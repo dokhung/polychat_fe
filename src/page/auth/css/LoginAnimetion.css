@@ -1,0 +1,289 @@
+.login-scene { position: relative; isolation: isolate; min-height: 100svh; overflow: hidden; display: flex; justify-content: center; padding: 38px 24px 30px; background: #070f24; color: #f0f5ff; font-family: Inter, "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.login-landscape { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: center bottom; pointer-events: none; }
+.login-scene::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgb(5 12 30 / 8%), rgb(5 12 30 / 12%) 50%, rgb(5 12 30 / 35%)); pointer-events: none; }
+.login-content { position: relative; z-index: 2; width: min(100%, 440px); margin: auto 0; text-align: center; }
+.login-brand { display: flex; flex-direction: column; align-items: center; }
+.login-chat-mark { width: 218px; height: 160px; object-fit: contain; filter: drop-shadow(0 0 25px #3b72e92e); animation: login-float 7s ease-in-out infinite; }
+.login-wordmark { margin: 4px 0 13px; font-size: clamp(60px, 6.5vw, 86px); font-weight: 750; letter-spacing: -5px; line-height: 1; color: #f0f4ff; text-shadow: 0 2px 20px #b2caff16; }
+.login-wordmark span { background: linear-gradient(120deg, #50e6f7 5%, #5998ff 53%, #a24cff 100%); background-clip: text; -webkit-background-clip: text; color: transparent; }
+.login-tagline { margin: 0; color: #bddcff; font-size: 10px; line-height: 2; letter-spacing: 4px; }
+.login-panel { margin-top: 30px; padding: 28px 32px 30px; text-align: left; border: 1px solid #a9c9ff29; border-radius: 20px; background: linear-gradient(145deg, #162a4ed9, #0b132ce8); box-shadow: 0 22px 70px #0207144d, inset 0 1px 0 #ffffff06; backdrop-filter: blur(22px); }
+.login-form { display: grid; gap: 18px; margin-top: 0; }
+.login-field { display: grid; gap: 8px; }
+.login-field label { color: #d1dbef; font-size: 12px; }
+.login-field input { display: block; box-sizing: border-box; width: 100%; height: 47px; border: 1px solid #829dce33; border-radius: 8px; background: #070f2480; color: #f0f5ff; padding: 0 14px; font: inherit; font-size: 13px; transition: border-color 160ms, box-shadow 160ms; }
+.login-field input::placeholder { color: #8492ae; }
+.login-field input:focus { outline: none; border-color: #6bcbff; box-shadow: 0 0 0 3px #58bbff1c; }
+.login-password-wrap { position: relative; }
+.login-password-wrap input { padding-right: 50px; }
+.login-password-toggle { position: absolute; right: 2px; top: 2px; width: 43px; height: 43px; display: grid; place-items: center; border: 0; border-radius: 6px; background: transparent; color: #99accd; cursor: pointer; }
+.login-password-toggle svg { width: 19px; height: 19px; }
+.login-password-toggle:hover { color: #72e0f8; }
+.login-submit { display: flex; align-items: center; justify-content: center; position: relative; height: 47px; margin-top: 3px; border: 1px solid #9cf0ff40; border-radius: 8px; background: linear-gradient(105deg, #3cbbdf, #587bf0 58%, #8460e6); color: white; font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: 0 5px 23px #497dfa26; transition: filter 160ms, transform 160ms; }
+.login-submit span { position: absolute; right: 17px; font-size: 20px; font-weight: 400; }
+.login-submit:hover { filter: brightness(1.13); }
+.login-submit:active { transform: translateY(1px); }
+.login-scene button:focus-visible { outline: 2px solid #a3eaff; outline-offset: 4px; }
+.login-status { margin: 0; font-size: 12px; color: #d5e4ff; line-height: 1.7; }
+.login-footer { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 25px; font-size: 8px; letter-spacing: 2px; color: #adbbd5; }
+.login-footer span { width: 4px; height: 4px; border-radius: 50%; background: #67d6ee; box-shadow: 0 0 9px #55cfff; }
+.login-manifesto { position: absolute; z-index: 2; top: 17%; color: #82b7ed; font-size: 11px; line-height: 2.4; letter-spacing: 5px; }
+.login-manifesto p { margin: 0; }
+.login-manifesto-left { left: 7.5%; }
+.login-manifesto-right { right: 6%; }
+.login-light-line { display: block; margin-top: 20px; width: 39px; height: 2px; background: linear-gradient(90deg, #40e7f9, #aa72ff); box-shadow: 0 0 9px #49c5ff70; }
+@keyframes login-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@media (min-width: 1500px) { .login-chat-mark { width: 250px; height: 180px; } }
+@media (max-width: 1000px) { .login-manifesto { font-size: 9px; letter-spacing: 3px; } .login-manifesto-left { left: 4%; } .login-manifesto-right { right: 3%; } }
+@media (max-width: 760px) { .login-manifesto { display: none; } .login-scene { padding: 28px 20px; } .login-chat-mark { width: 195px; height: 140px; } .login-panel { padding: 25px 24px; margin-top: 26px; } }
+@media (max-width: 380px) { .login-tagline { letter-spacing: 3px; font-size: 9px; } .login-panel { padding: 23px 20px; } .login-footer { letter-spacing: 1.2px; } }
+@media (prefers-reduced-motion: reduce) { .login-chat-mark { animation: none; } .login-scene *, .login-scene *::before, .login-scene *::after { transition: none; } }
+@media (min-width: 761px) and (max-height: 800px) {
+    .login-scene { padding-top: 22px; padding-bottom: 22px; }
+    .login-chat-mark { width: 175px; height: 120px; }
+    .login-wordmark { font-size: 68px; margin-bottom: 10px; }
+    .login-panel { margin-top: 20px; padding-top: 22px; padding-bottom: 24px; }
+    .login-form { gap: 14px; }
+    .login-footer { margin-top: 18px; }
+}
+
+/* Light stays on its own layer, behind the form and above the landscape. */
+.login-floor-lights {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.login-floor-spark {
+    fill: currentColor;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: login-sparkle 5s ease-in-out infinite;
+}
+.login-floor-halo { opacity: 0.32; filter: blur(7px); }
+.login-gem { position: relative; animation: login-float 7s ease-in-out infinite; }
+.login-gem .login-chat-mark {
+    display: block;
+    animation: login-gem-glow 6s ease-in-out infinite;
+}
+.login-gem-glint {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    background: radial-gradient(circle, #fff 0 8%, #d6fbff 12%, #95eaff80 32%, transparent 70%);
+    filter: drop-shadow(0 0 5px #a1ecff);
+    animation: login-sparkle 4.8s ease-in-out infinite;
+    pointer-events: none;
+}
+.login-gem-glint::before, .login-gem-glint::after {
+    content: "";
+    position: absolute;
+    inset: 46% 0;
+    border-radius: 50%;
+    background: linear-gradient(90deg, transparent, white, transparent);
+}
+.login-gem-glint::after { transform: rotate(90deg); }
+.login-gem-glint-one { left: 55%; top: 8%; animation-delay: -0.5s; }
+.login-gem-glint-two { left: 12%; top: 77%; animation-delay: -2.1s; }
+.login-gem-glint-three { right: 9%; top: 49%; animation-delay: -3.6s; }
+@keyframes login-sparkle {
+    0%, 60%, 100% { opacity: 0.08; transform: scale(0.5); }
+    76% { opacity: 0.95; transform: scale(1.15); }
+    86% { opacity: 0.35; transform: scale(0.8); }
+}
+@keyframes login-gem-glow {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 12px #5488ff30); }
+    50% { filter: brightness(1.16) drop-shadow(0 0 23px #64d9ff66); }
+}
+
+/* Each side has a ten-second turn: type, hold, fade, then switch. */
+.login-typed-copy { animation: login-copy-turn 20s linear infinite both; }
+.login-manifesto-right .login-typed-copy { animation-delay: 10s; }
+.login-typed-line { display: block; white-space: pre; }
+.login-typed-character { opacity: 0; animation: login-type-character 20s steps(1, end) infinite; }
+@keyframes login-type-character {
+    0% { opacity: 0; }
+    0.1%, 49.9% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+@keyframes login-copy-turn {
+    0% { opacity: 0; }
+    0.1%, 42% { opacity: 1; }
+    48%, 100% { opacity: 0; }
+}
+
+/* Translucent faces, bright bevels and a moving reflection across the letters. */
+.login-wordmark {
+    position: relative;
+    filter: drop-shadow(0 5px 2px #020a2455) drop-shadow(0 0 18px #779fff33);
+    text-shadow: none;
+}
+.login-wordmark .login-wordmark-poly {
+    background-image: linear-gradient(165deg, #ffffff 2%, #c6e4ffb0 31%, #f7fcff 43%, #6f99c375 47%, #bedbfa99 64%, #f4fbff 91%);
+}
+.login-wordmark .login-wordmark-chat {
+    background-image: linear-gradient(120deg, #75f2ffbb, #84aaff88 55%, #ba7bffa8), linear-gradient(165deg, #ffffff 2%, #c6e4ffb0 31%, #f7fcff 43%, #34579455 47%, #9ccfff99 64%, #f4fbff 91%);
+}
+.login-wordmark > span {
+    -webkit-text-stroke: 0.7px #c9eaff9c;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.login-wordmark::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    background: linear-gradient(110deg, transparent 35%, #ffffff0a 42%, #ffffffda 49%, #d7fbff99 51%, transparent 59%) 140% 0 / 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: login-glass-reflection 7s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes login-glass-reflection {
+    0%, 18% { background-position: 140% 0; }
+    65%, 100% { background-position: -40% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .login-scene *, .login-scene *::before, .login-scene *::after { animation: none !important; }
+    .login-typed-copy, .login-typed-character { opacity: 1; }
+    .login-floor-lights, .login-gem-glint, .login-wordmark::after { display: none; }
+}
+
+/* Reflections are clipped to the transparent gemstone asset. */
+.login-gem-refraction, .login-gem-reflection {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mask: url("../../../assets/login/chat-mark.png") center / contain no-repeat;
+    -webkit-mask: url("../../../assets/login/chat-mark.png") center / contain no-repeat;
+    mix-blend-mode: screen;
+}
+.login-gem-refraction {
+    background: conic-gradient(from 215deg at 36% 55%, transparent 0deg, #7c94ff55 50deg, transparent 65deg, #d5ffff80 115deg, transparent 132deg, #ae82ff66 200deg, transparent 230deg);
+    animation: login-crystal-refraction 8s ease-in-out infinite;
+}
+.login-gem-reflection {
+    background: linear-gradient(112deg, transparent 34%, #bfefff08 40%, #d4faff66 46%, #ffffffdd 48%, #bfe9ff33 50%, transparent 54%, #bba5ff55 59%, transparent 63%) 140% 0 / 300% 100%;
+    animation: login-gem-sweep 6.5s ease-in-out infinite;
+}
+.login-floor-crystal {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+.login-crystal-facet {
+    fill: url(#floor-crystal-face);
+    stroke: #b2e9ff;
+    stroke-width: 0.7;
+    stroke-opacity: 0.45;
+    opacity: 0.16;
+    animation: login-facet-reflection 8s ease-in-out infinite;
+}
+@keyframes login-gem-sweep {
+    0%, 12% { background-position: 140% 0; opacity: 0.2; }
+    35% { opacity: 0.9; }
+    65%, 100% { background-position: -40% 0; opacity: 0.2; }
+}
+@keyframes login-crystal-refraction {
+    0%, 100% { opacity: 0.2; }
+    48% { opacity: 0.65; }
+    70% { opacity: 0.35; }
+}
+@keyframes login-facet-reflection {
+    0%, 100% { opacity: 0.09; }
+    38% { opacity: 0.18; }
+    54% { opacity: 0.6; }
+    72% { opacity: 0.15; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .login-gem-reflection { display: none; }
+    .login-gem-refraction { opacity: 0.3; }
+    .login-crystal-facet { opacity: 0.2; }
+}
+
+/* Small conversational fragments leave the central form unobstructed. */
+.login-conversation-notes { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.login-conversation-note {
+    position: absolute;
+    width: 210px;
+    padding-left: 15px;
+    animation: login-note-arrive 18s ease-in-out var(--note-delay) infinite both;
+}
+.login-note-node { position: absolute; left: 0; top: 5px; width: 4px; height: 4px; background: #99e7ff; transform: rotate(45deg); box-shadow: 0 0 9px #87dfff90; }
+.login-note-title { margin: 0; font-size: 9px; font-weight: 500; line-height: 1.6; letter-spacing: 2.3px; color: #c4deff; white-space: nowrap; clip-path: inset(0 100% 0 0); animation: login-note-type 18s steps(22, end) var(--note-delay) infinite both; }
+.login-note-top-left { left: 18%; top: 5%; }
+.login-note-top-right { right: 12%; top: 6%; }
+.login-note-middle-left { left: 5%; top: 46%; }
+.login-note-middle-right { right: 4%; top: 46%; }
+.login-note-bottom-left { left: 11%; top: 77%; }
+.login-note-bottom-right { right: 8%; top: 79%; }
+@keyframes login-note-arrive {
+    0%, 4%, 86%, 100% { opacity: 0; transform: translateY(5px); }
+    15%, 66% { opacity: 0.85; transform: translateY(0); }
+}
+@keyframes login-note-type {
+    0%, 6% { clip-path: inset(0 100% 0 0); }
+    23%, 100% { clip-path: inset(0 0 0 0); }
+}
+
+/* A beveled crystal button with a moving reflection and tactile states. */
+.login-submit {
+    isolation: isolate;
+    overflow: hidden;
+    height: 54px;
+    gap: 10px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    background: linear-gradient(115deg, #245e83, #3f53a0 53%, #65449b) padding-box,
+        linear-gradient(125deg, #c4f6ff, #75c3ff88 35%, #b9a0f0 80%, #e4cfff) border-box;
+    box-shadow: inset 0 1px 0 #ffffff66, inset 0 -3px 0 #10204655, 0 7px 22px #4772f033, 0 1px 3px #020a2780;
+    text-shadow: 0 1px 5px #17306680;
+    transition: transform 180ms, box-shadow 180ms, filter 180ms;
+}
+.login-submit::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(175deg, #d8fbff33, #ffffff05 48%, #07163622 50%, #8494ff11);
+    pointer-events: none;
+}
+.login-submit::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 35%, #ddfaff06 43%, #e3faff66 49%, #ffffff11 54%, transparent 62%) 140% 0 / 300% 100%;
+    animation: login-button-sheen 6s ease-in-out infinite;
+    pointer-events: none;
+}
+.login-submit .login-submit-label { position: relative; right: auto; font-size: 14px; font-weight: 650; letter-spacing: 2px; }
+.login-submit-gem { position: absolute; left: 17px; width: 20px; height: 20px; color: #c0f3ff; filter: drop-shadow(0 0 5px #8fe8ff66); }
+.login-submit .login-submit-arrow { position: absolute; right: 11px; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid #dfecff30; border-radius: 7px; background: #d8dbff0d; transition: transform 180ms, background 180ms; }
+.login-submit-arrow svg { width: 18px; height: 18px; }
+.login-submit:hover { transform: translateY(-2px); filter: brightness(1.15); box-shadow: inset 0 1px 0 #ffffff88, inset 0 -3px 0 #10204644, 0 10px 28px #568af055, 0 0 15px #8edaff22; }
+.login-submit:hover .login-submit-arrow { transform: translateX(2px); background: #e0eaff20; }
+.login-submit:active { transform: translateY(1px); filter: brightness(1.03); box-shadow: inset 0 2px 5px #14245666, 0 3px 12px #4772f033; }
+@keyframes login-button-sheen {
+    0%, 25% { background-position: 140% 0; }
+    70%, 100% { background-position: -40% 0; }
+}
+@media (max-width: 1100px) {
+    .login-conversation-note { width: 165px; }
+    .login-note-title { font-size: 8px; letter-spacing: 1.3px; }
+    .login-note-top-left, .login-note-bottom-left { left: 4%; }
+    .login-note-top-right, .login-note-bottom-right { right: 3%; }
+}
+@media (max-width: 900px) { .login-conversation-notes { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+    .login-conversation-note { opacity: 0.75; transform: none; }
+    .login-note-title { clip-path: none; }
+    .login-submit::after { display: none; }
+}
