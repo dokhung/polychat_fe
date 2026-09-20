@@ -1,5 +1,5 @@
 import React from "react";
-import {LoginView} from "./page/auth/view/LoginView.tsx";
+import {LoginView} from "./page/auth/login/view/LoginView.tsx";
 import { Route,Routes } from "react-router-dom";
 
 export function App() {

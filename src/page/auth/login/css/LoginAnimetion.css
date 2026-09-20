@@ -1,0 +1,70 @@
+/* Layout and visual styles live in LoginView's Tailwind utilities. */
+/* Keep asset-relative URLs in CSS so Vite resolves and fingerprints the mask. */
+.login-gem-mask {
+    mask: url("../../../../assets/login/chat-mark.png") center / contain no-repeat;
+    -webkit-mask: url("../../../../assets/login/chat-mark.png") center / contain no-repeat;
+}
+
+@keyframes login-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+@keyframes login-sparkle {
+    0%, 60%, 100% { opacity: 0.08; transform: scale(0.5); }
+    76% { opacity: 0.95; transform: scale(1.15); }
+    86% { opacity: 0.35; transform: scale(0.8); }
+}
+
+@keyframes login-gem-glow {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 12px #5488ff30); }
+    50% { filter: brightness(1.16) drop-shadow(0 0 23px #64d9ff66); }
+}
+
+@keyframes login-type-character {
+    0% { opacity: 0; }
+    0.1%, 49.9% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@keyframes login-copy-turn {
+    0% { opacity: 0; }
+    0.1%, 42% { opacity: 1; }
+    48%, 100% { opacity: 0; }
+}
+
+@keyframes login-glass-reflection {
+    0%, 18% { background-position: 140% 0; }
+    65%, 100% { background-position: -40% 0; }
+}
+
+@keyframes login-gem-sweep {
+    0%, 12% { background-position: 140% 0; opacity: 0.2; }
+    35% { opacity: 0.9; }
+    65%, 100% { background-position: -40% 0; opacity: 0.2; }
+}
+
+@keyframes login-crystal-refraction {
+    0%, 100% { opacity: 0.2; }
+    48% { opacity: 0.65; }
+    70% { opacity: 0.35; }
+}
+
+@keyframes login-facet-reflection {
+    0%, 100% { opacity: 0.09; }
+    38% { opacity: 0.18; }
+    54% { opacity: 0.6; }
+    72% { opacity: 0.15; }
+}
+
+@keyframes login-note-arrive {
+    0%, 4%, 86%, 100% { opacity: 0; transform: translateY(5px); }
+    15%, 66% { opacity: 0.85; transform: translateY(0); }
+}
+
+@keyframes login-note-type {
+    0%, 6% { clip-path: inset(0 100% 0 0); }
+    23%, 100% { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes login-button-sheen {
+    0%, 25% { background-position: 140% 0; }
+    70%, 100% { background-position: -40% 0; }
+}

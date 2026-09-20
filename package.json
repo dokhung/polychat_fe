@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "animejs": "^4.5.0",
+    "axios": "^1.20.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.3",
