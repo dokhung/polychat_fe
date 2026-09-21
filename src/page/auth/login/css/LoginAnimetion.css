@@ -1,4 +1,122 @@
 /* Layout and visual styles live in LoginView's Tailwind utilities. */
+.auth-switch {
+    display: grid;
+    align-items: center;
+}
+.auth-panel {
+    grid-area: 1 / 1;
+    min-width: 0;
+    transition: transform 650ms cubic-bezier(.22,1,.36,1), opacity 450ms ease, visibility 650ms;
+}
+.auth-panel-inner { min-width: 0; }
+.auth-panel-login { opacity: 1; transform: translateX(0); }
+.auth-panel-signup { opacity: 0; visibility: hidden; transform: translateX(-115%); }
+.auth-switch[data-mode="signup"] .auth-panel-login {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(115%);
+}
+.auth-switch[data-mode="signup"] .auth-panel-signup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+@media (prefers-reduced-motion: reduce) {
+    .auth-panel { transition: none; }
+}
+.login-aurora { position: absolute; z-index: 0; width: 42vw; height: 42vw; border-radius: 999px; filter: blur(70px); opacity: .22; pointer-events: none; animation: login-aurora-drift 14s ease-in-out infinite alternate; }
+.login-aurora-left { top: -18vw; left: -13vw; background: #2f68ff; }
+.login-aurora-right { right: -12vw; bottom: -20vw; background: #8e45ff; animation-delay: -6s; }
+.login-grid-glow { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .26; background-image: linear-gradient(#79dfff12 1px, transparent 1px), linear-gradient(90deg, #79dfff12 1px, transparent 1px); background-size: 78px 78px; mask-image: radial-gradient(ellipse at center, black, transparent 72%); }
+.signup-backdrop { animation: signup-backdrop-in 420ms ease-out both; }
+.signup-orbit { position: absolute; border: 1px solid #76dfff36; border-radius: 999px; pointer-events: none; filter: blur(.2px); animation: signup-orbit-spin 13s linear infinite; }
+.signup-orbit-one { width: 620px; height: 620px; border-color: #7e9bff38; box-shadow: 0 0 80px #5b75ff25, inset 0 0 80px #62e4ff12; }
+.signup-orbit-two { width: 420px; height: 420px; border-color: #68eaff2b; animation-direction: reverse; animation-duration: 9s; }
+.signup-dialog { animation: signup-dialog-in 560ms cubic-bezier(.2,.8,.2,1) both; box-shadow: 0 30px 100px #020714aa, 0 0 0 1px #91dcff12, 0 0 70px #4f91ff1c, inset 0 1px 0 #ffffff12; }
+.signup-dialog::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; background: linear-gradient(120deg, transparent 20%, #70ddff66 45%, transparent 70%); background-size: 220% 100%; animation: signup-sheen 3.8s ease-in-out infinite; }
+.signup-dialog::after { content: ""; position: absolute; inset: 1px; border-radius: inherit; pointer-events: none; background: radial-gradient(circle at 15% 0%, #79eaff12, transparent 34%), radial-gradient(circle at 100% 100%, #9274ff12, transparent 38%); }
+.signup-heading, .signup-form { position: relative; z-index: 1; }
+.signup-field { animation: signup-field-in 500ms both; }
+.signup-field:nth-child(2) { animation-delay: 80ms; }
+.signup-field:nth-child(3) { animation-delay: 160ms; }
+.signup-field:nth-child(4) { animation-delay: 240ms; }
+.signup-field input,
+.signup-field input:focus { box-shadow: none; }
+.signup-input-frame { position: relative; isolation: isolate; border-radius: .5rem; overflow: hidden; background: #829dce55; }
+.signup-input-frame::after { content: ""; position: absolute; z-index: 1; inset: 1px; border-radius: .43rem; background: #070f24; }
+.signup-input-frame input { position: relative; z-index: 2; }
+.signup-input-frame input,
+.signup-input-frame input:focus { border-color: transparent; }
+.signup-field:focus-within { color: #a9f3ff; text-shadow: 0 0 14px #5ee8ff45; }
+.signup-field:focus-within::first-line { color: #a9f3ff; }
+.signup-border-trail {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    color: #7cdbff;
+    opacity: 0;
+    transition: opacity 200ms, color 200ms;
+}
+
+.signup-border-trail rect {
+    x: 1px;
+    y: 1px;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    rx: 7px;
+    ry: 7px;
+    fill: none;
+    stroke: currentColor;
+    stroke-dasharray: 5 95;
+    animation: none;
+    animation-delay: var(--border-delay, 0s);
+}
+
+.signup-border-trail-line { stroke-width: 1.5px; stroke-linecap: round; }
+.signup-field:nth-child(2) { --border-delay: -1s; }
+.signup-field:nth-child(3) { --border-delay: -2s; }
+.signup-field:nth-child(4) { --border-delay: -3s; }
+.signup-input-frame:focus-within .signup-border-trail { opacity: 1; color: #c1faff; }
+.signup-input-frame:focus-within .signup-border-trail rect,
+.signup-input-frame[data-validation="success"] .signup-border-trail rect,
+.signup-input-frame[data-validation="error"] .signup-border-trail rect {
+    animation: signup-border-travel 4s linear infinite;
+    animation-delay: var(--border-delay, 0s);
+}
+
+@keyframes signup-border-travel {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -100; }
+}
+
+.signup-input-frame[data-validation="success"] .signup-border-trail {
+    opacity: 1;
+    color: #2563eb;
+}
+
+.signup-input-frame[data-validation="error"] .signup-border-trail {
+    opacity: 1;
+    color: #ff6378;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .signup-input-frame:focus-within .signup-border-trail rect,
+    .signup-input-frame[data-validation] .signup-border-trail rect { animation: none; }
+}
+.signup-field:focus-within .signup-input-frame { box-shadow: none; }
+.signup-field:focus-within > span:not([role="status"]) { color: #b7a7ff; text-shadow: 0 0 12px #9e83ff55; }
+.signup-field > [role="status"] { text-shadow: none; line-height: 1.6; }
+.signup-field > [role="status"]:empty { display: none; }
+.signup-submit { box-shadow: 0 10px 30px #5dc7ff30, 0 0 0 0 #7ceaff00; animation: signup-button-pulse 3.5s ease-in-out infinite; }
+@keyframes login-aurora-drift { from { transform: translate3d(-2%, 1%, 0) scale(1); } to { transform: translate3d(6%, -5%, 0) scale(1.14); } }
+@keyframes signup-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes signup-dialog-in { from { opacity: 0; transform: translateY(28px) scale(.92) rotateX(6deg); } to { opacity: 1; transform: translateY(0) scale(1) rotateX(0); } }
+@keyframes signup-field-in { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes signup-button-pulse { 0%, 100% { box-shadow: 0 10px 30px #5dc7ff30, 0 0 0 0 #7ceaff00; } 50% { box-shadow: 0 12px 34px #5dc7ff55, 0 0 0 5px #7ceaff0b; } }
+@keyframes signup-orbit-spin { from { transform: rotate(0deg) scale(1); } to { transform: rotate(360deg) scale(1.04); } }
 /* Keep asset-relative URLs in CSS so Vite resolves and fingerprints the mask. */
 .login-gem-mask {
     mask: url("../../../../assets/login/chat-mark.png") center / contain no-repeat;

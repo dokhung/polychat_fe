@@ -1,0 +1,14 @@
+{
+  "gender": "male",
+  "triangles": 33370,
+  "bones": 18,
+  "height": 1.5179945230484009,
+  "animations": [
+    "Idle",
+    "Walk",
+    "Wave",
+    "TurnAround",
+    "Run",
+    "Sit"
+  ]
+}

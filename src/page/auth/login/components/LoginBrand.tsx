@@ -1,9 +1,9 @@
 import React from "react";
 import chatMark from "../../../../assets/login/chat-mark.png";
 
-const gemGlintClassName = "pointer-events-none absolute size-[23px] animate-[login-sparkle_4.8s_ease-in-out_infinite] bg-[radial-gradient(circle,#fff_0_8%,#d6fbff_12%,#95eaff80_32%,transparent_70%)] drop-shadow-[0_0_5px_#a1ecff] before:absolute before:inset-x-0 before:inset-y-[46%] before:rounded-[50%] before:bg-[linear-gradient(90deg,transparent,white,transparent)] before:content-[''] after:absolute after:inset-x-0 after:inset-y-[46%] after:rotate-90 after:rounded-[50%] after:bg-[linear-gradient(90deg,transparent,white,transparent)] after:content-[''] motion-reduce:hidden";
+const gemGlintClassName: string = "pointer-events-none absolute size-[23px] animate-[login-sparkle_4.8s_ease-in-out_infinite] bg-[radial-gradient(circle,#fff_0_8%,#d6fbff_12%,#95eaff80_32%,transparent_70%)] drop-shadow-[0_0_5px_#a1ecff] before:absolute before:inset-x-0 before:inset-y-[46%] before:rounded-[50%] before:bg-[linear-gradient(90deg,transparent,white,transparent)] before:content-[''] after:absolute after:inset-x-0 after:inset-y-[46%] after:rotate-90 after:rounded-[50%] after:bg-[linear-gradient(90deg,transparent,white,transparent)] after:content-[''] motion-reduce:hidden";
 
-export const LoginBrand: React.FC = () => (
+export const LoginBrand: React.FC = (): React.JSX.Element => (
     <header className="flex flex-col items-center">
         <div className="relative animate-[login-float_7s_ease-in-out_infinite]" aria-hidden="true">
             <img className="block h-40 w-[218px] animate-[login-gem-glow_6s_ease-in-out_infinite] object-contain drop-shadow-[0_0_25px_#3b72e92e]

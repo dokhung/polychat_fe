@@ -11,7 +11,7 @@ export const AuthButton: React.FC<AuthButtonProps & { label: string }> = ({
     onClick,
     disabled = false,
     label,
-}) => (
+}: AuthButtonProps & { label: string; }): React.JSX.Element => (
     <button
         type={type}
         onClick={onClick}

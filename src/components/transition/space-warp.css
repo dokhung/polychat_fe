@@ -1,0 +1,99 @@
+.warp-page-departing {
+    pointer-events: none;
+    animation: warp-page-depart 650ms ease-in forwards;
+}
+
+.space-warp {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+    touch-action: none;
+    cursor: progress;
+}
+
+.space-warp-space, .space-warp-stars, .space-warp-core, .space-warp-flash {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.space-warp-space {
+    background: radial-gradient(ellipse at center, #071c38, #020610 65%, #010309);
+    animation: warp-space-enter 500ms ease-in both;
+}
+
+.space-warp-core {
+    background: radial-gradient(ellipse at center, #fff 0%, #c1effff0 2%, #5fbfff88 8%, #2573ce25 24%, transparent 55%);
+    animation: warp-core-charge 1580ms ease-in both;
+    mix-blend-mode: screen;
+}
+
+.space-warp-flash {
+    background: #fff; opacity: 0;
+}
+.space-warp-arrived {
+    animation: warp-arrival 420ms ease-out both;
+}
+.space-warp-arrived .space-warp-flash {
+    opacity: 1 !important;
+}
+.space-warp-status {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);
+}
+
+@keyframes warp-page-depart {
+    to {
+        transform: scale(.95); filter: brightness(.25); opacity: .5;
+    }
+}
+@keyframes warp-space-enter {
+    from {
+        opacity: 0;
+    } to {
+              opacity: 1;
+          }
+}
+@keyframes warp-core-charge {
+    0%, 18% {
+        opacity: 0; transform: scale(.08);
+    }
+    45% {
+        opacity: .25; transform: scale(.18);
+    }
+    76% {
+        opacity: .65; transform: scale(.45);
+    }
+    100% {
+        opacity: 1; transform: scale(2.2);
+    }
+}
+@keyframes warp-arrival {
+    from {
+        opacity: 1;
+    } to {
+              opacity: 0;
+          }
+}
+
+.space-warp-reduced {
+    background: #050b18;
+}
+.space-warp-reduced .space-warp-stars,
+.space-warp-reduced .space-warp-core,
+.space-warp-reduced .space-warp-flash {
+    display: none;
+}
+.space-warp-reduced.space-warp-arrived {
+    animation-duration: 180ms;
+}
+@media (prefers-reduced-motion: reduce) {
+    .warp-page-departing {
+        animation: none;
+    }
+    .space-warp-space {
+        animation: none;
+    }
+}

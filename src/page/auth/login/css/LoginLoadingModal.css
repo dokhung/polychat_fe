@@ -1,0 +1,32 @@
+.login-loading-modal {
+    position: fixed;
+    inset: 0;
+    width: min(360px, calc(100vw - 40px));
+    margin: auto;
+    padding: 34px 30px 30px;
+    border: 1px solid #a9c9ff40;
+    border-radius: 22px;
+    background: radial-gradient(ellipse at top, #26446b70, transparent 65%), linear-gradient(145deg, #142642, #0b142b);
+    color: #edf3ff;
+    font-family: var(--font-login);
+    text-align: center;
+    box-shadow: 0 28px 90px #02071499, inset 0 1px 0 #ffffff0d;
+    outline: none;
+}
+.login-loading-modal[open] { animation: login-modal-arrive 180ms ease-out both; }
+.login-loading-modal::backdrop { background: #020817b3; backdrop-filter: blur(7px); }
+.login-loading-orbit { position: relative; display: grid; place-items: center; width: 70px; height: 70px; margin: 0 auto 22px; color: #9cddff; }
+.login-loading-orbit svg { width: 36px; height: 36px; filter: drop-shadow(0 0 12px #77caff66); }
+.login-loading-ring { position: absolute; inset: 0; border: 1px solid #8cbfff26; border-top: 2px solid #92ddff; border-right-color: #a498eb; border-radius: 50%; animation: login-modal-spin 1.2s linear infinite; }
+.login-loading-label { margin: 0 0 10px; font-size: 9px; letter-spacing: 3px; color: #85b4d8; }
+.login-loading-modal h2 { margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -.5px; }
+.login-loading-modal #login-loading-description { margin: 13px 0 25px; font-size: 12px; line-height: 1.8; color: #a4b5cf; }
+.login-loading-progress { height: 3px; overflow: hidden; border-radius: 8px; background: #a8cfff12; }
+.login-loading-progress span { display: block; width: 40%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, transparent, #88d9f6, #a99aef, transparent); animation: login-modal-progress 1.7s ease-in-out infinite; }
+@keyframes login-modal-spin { to { transform: rotate(360deg); } }
+@keyframes login-modal-progress { from { transform: translateX(-100%); } to { transform: translateX(350%); } }
+@keyframes login-modal-arrive { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+    .login-loading-modal[open], .login-loading-ring, .login-loading-progress span { animation: none; }
+    .login-loading-progress span { margin-inline: auto; }
+}
