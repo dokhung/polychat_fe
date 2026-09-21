@@ -3,12 +3,14 @@ import { animate, stagger } from "animejs";
 import { LoginBackground } from "../components/LoginBackground";
 import { LoginBrand } from "../components/LoginBrand";
 import { LoginForm } from "../components/LoginForm";
+import { JoinMembershipModal } from "../../signup/components/JoinMembershipModal";
 import "../css/LoginAnimetion.css";
 
 export const LoginView: React.FC = () => {
     const introRef = useRef<HTMLDivElement>(null);
     const [showPassword, setShowPassword] = useState(false);
     const [message, setMessage] = useState("");
+    const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
 
     useEffect(() => {
         const intro = introRef.current;
@@ -34,8 +36,7 @@ export const LoginView: React.FC = () => {
     };
 
     const handleSignup = () => {
-        // Connect the signup route or modal here when the membership flow is implemented.
-        setMessage("Sign up is not available yet. Please try again later.");
+        setIsSignupModalOpen(true);
     };
 
     return (
@@ -63,6 +64,7 @@ export const LoginView: React.FC = () => {
                     <span className="size-1 rounded-full bg-[#67d6ee] shadow-[0_0_9px_#55cfff]" aria-hidden="true" /> EVERY CONVERSATION STARTS WITH YOU
                 </footer>
             </div>
+            {isSignupModalOpen && <JoinMembershipModal onClose={() => setIsSignupModalOpen(false)} />}
         </main>
     );
 };
